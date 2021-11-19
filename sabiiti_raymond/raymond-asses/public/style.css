@@ -1,0 +1,123 @@
+.main {
+    width: 50%;
+    height: 700px;
+    margin: auto;
+    border: 1px solid rgb(102, 2, 80);
+    margin-top: 50px;
+    position: relative;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.header {
+    margin: 25px auto;
+    height: 50px;
+    background-color: rgb(102, 2, 80);
+    width: 93%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.header small {
+    color: white;
+    font-size: 25px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    width: 93%;
+    height: auto;
+    margin: auto;
+}
+
+.flex-gender {
+    display: flex;
+    flex-direction: row;
+    width: 93%;
+    margin: auto;
+    border: 1px solid rgb(102, 2, 80);
+    margin-top: 30px;
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-bottom: 2px;
+    padding-top: 3px;
+    margin-bottom: 20px;
+}
+
+.female {
+    margin-left: 120px;
+}
+
+.pic {
+    height: 150px;
+    width: 170px;
+    border: 1px solid rgb(102, 2, 80);
+}
+
+.right {
+    margin-left: 30px;
+}
+
+.halfway {
+    width: 410px;
+    height: 20px;
+    margin-top: 7px;
+    margin-bottom: 9px;
+    border: 1px solid rgb(102, 2, 80);
+    outline: red;
+}
+
+.halfway-t {
+    width: 418px;
+    height: 25px;
+    margin-top: 7px;
+    margin-bottom: 9px;
+    border: 1px solid rgb(102, 2, 80);
+    outline: red;
+}
+
+.full {
+    width: 610px;
+    height: 25px;
+    margin-top: 7px;
+    margin-bottom: 9px;
+    border: 1px solid rgb(102, 2, 80);
+    outline: red;
+}
+
+.halfway-c {
+    width: 250px;
+    height: 25px;
+    margin-top: 7px;
+    margin-bottom: 9px;
+    border: 1px solid rgb(102, 2, 80);
+    outline: red;
+}
+
+#mgnl-c {
+    margin-left: 113px;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: rgb(102, 2, 80);
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px;
+    width: 180px;
+    background-color: rgb(102, 2, 80);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    right: 20px;
+    margin-top: 28px;
+}

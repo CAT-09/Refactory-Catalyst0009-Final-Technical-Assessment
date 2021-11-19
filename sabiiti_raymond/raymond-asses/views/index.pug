@@ -1,0 +1,82 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Registration
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='/style.css')
+.main
+  .header
+    small Student registration form
+  form#myform(name='form1' action='/student/register' method='post' )
+    .flex
+      .left
+        .half
+          label.mgn(for='surname') Surname
+          br
+          input#surname.halfway(type='text' name='surname')
+          br
+          small#id1
+        .half
+          label.mgn(for='givenname') Given Name
+          br
+          input#givenname.halfway(type='text' name='givenname')
+          br
+          small#id2
+        .half
+          label.mgn(for='tittle') Tittle
+          br
+          select.halfway-t(name='tittle' id='')
+            option(value='select') select
+            option(value='student') student
+            option(value='prefect') prefect
+            option(value='headboy') headboy
+            option(value='headgirl') headgirl
+      .right
+        .pic
+        input.file(type='file' name='photo')
+        label.pic-label(for='photo') Upload Photo
+    .flex-gender
+      label(for='gender') Male
+      input(type='radio' name='gender' value='male')
+      label.female(for='gender') Female
+      input(type='radio' name='gender' value='female')
+      small#id4
+    .flex
+      .half
+        label.mgn(for='month') Date Of Birth
+        br
+        input.halfway-c(type='date' name='DOB')
+        br
+        small#id5
+      #mgnl-c.half
+        label.mgn(for='country') Country
+        br
+        select.halfway-c(name='country')
+          br
+          option(value='select contry')
+          option(value='student') Uganda
+          option(value='prefect') Tanzania
+          option(value='headboy') Rwanda
+          option(value='headgirl') Burundi
+    .flex
+      .half
+        label.mgn(for='surname') Place of Residance
+        br
+        input.full(type='text' name='Place')
+        br
+        small#id7
+    .flex
+      .half
+        label.mgn(for='nation') Nationality
+        br
+        input.full(type='text' name='Nationality')
+        br
+        small#id8
+    .flex
+      .line
+    input.btn(type='submit' value='Register')
+script(src='./valid.js')
