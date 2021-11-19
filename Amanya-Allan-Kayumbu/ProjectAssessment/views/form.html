@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="/Refactory-Catalyst0009-Final-Technical-Assessment/Amanya-Allan-Kayumbu/ProjectAssessment/bootstrap-5.1.1-dist/Bootstrap/css/bootstrap.css"
+    /> -->
+    <link rel="stylesheet" href="/Refactory-Catalyst0009-Final-Technical-Assessment/Amanya-Allan-Kayumbu/ProjectAssessment/css/form.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Student Registration Form</h3>
+    <form action="" id="form" name="studentregistration">
+      <div class="container">
+        <div class="row">
+          <div>
+            <div id="field" class="col-8">
+              <label for="surname">Surname</label>
+              <input name="surname" type="text" value="Enter Surname" size="12" id="surname-error"/>
+            </div>
+            <div id="field">
+              <label for="givenname">Given name</label>
+              <input name="givenname" id="givenname-error" type="text" value="Enter Given Name" />
+            </div>
+            <div id="field">
+              <label for="title">Title</label>
+              <input  name="title" id="title-error" type="text" value="Select Title" />
+            </div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+      </div>
+      <div id="field">
+        <label for="gender">Gender</label>
+        <input type="radio" name="sex" /><span>Male</span>
+        <input type="radio" name="sex" /><span>Female</span>
+        <small id="sex-error"></small>
+      </div>
+      <div>
+        <div id="field">
+          <label for="DoB">Date of Birth</label>
+          <input  name="birthdate" type="date" id="date-error"/>
+        </div>
+        <div id="field">
+          <label for="country">Country</label>
+          <select name="country" name="country" id="">
+            <option selected="empty" value="Default">Select Country</option>
+            <option value="UG">Uganda</option>
+            <option value="KY">Kenya</option>
+            <option value="TZ">Tanzania</option>
+            <option value="RW">Rwanda</option>
+            <option value="BU">Burundi</option>
+            <option value="SS">South Sudan</option>
+          </select>
+          <small id="sex-error"></small>
+        </div>
+      </div>
+      <div id="field">
+        <label for="residence">Place of Residence</label>
+        <input name="residence" id="residence-error" type="text" value="Enter Place of Residence" />
+      </div>
+      <div id="field">
+        <label for="nationality">Nationality</label>
+        <input name="nationality" id="nationality-error" type="text" value="Enter yout Nationality here" />
+      </div>
+      <div >
+        <button type="submit">Register</button>
+      </div>
+    </form>
+    <script src="/Refactory-Catalyst0009-Final-Technical-Assessment/Amanya-Allan-Kayumbu/ProjectAssessment/bootstrap-5.1.1-dist/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/Refactory-Catalyst0009-Final-Technical-Assessment/Amanya-Allan-Kayumbu/ProjectAssessment/js/form.js"></script>
+  </body>
+</html>

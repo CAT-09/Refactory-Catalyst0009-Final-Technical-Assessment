@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+    border: 1px solid rgb(83, 70, 83);
+    padding: 10px;
+    margin: 10px;
+  }
+
+  h3 {
+    color: white;
+    padding: 5px;
+    background-color: rgb(73, 10, 73);
+  }
+
+  label {
+    color: rgb(73, 10, 73);
+    font-weight: bold;
+  }
+
+  input {
+    border-color: rgb(73, 10, 73);
+    border: 1px solid;
+    position: relative;
+  }
+
+  #field {
+    padding: 10px;
+  }
+
+  [type='submit'] {
+    background-color: rgb(73, 10, 73);
+    width: 150px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 870px;
+    
+  }
