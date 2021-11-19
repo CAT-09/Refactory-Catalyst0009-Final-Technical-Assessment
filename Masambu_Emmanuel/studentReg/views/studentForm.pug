@@ -1,0 +1,95 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Student Registration
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+    link(rel='stylesheet' href='css/form.css')
+  body
+    .container
+      .row
+        h1 Student Registration Form
+        form#regForm(action='/studentinfo/studentForm' name='studentReg' enctype='multipart/form-data')
+          .row
+            .col-md-6
+              ul
+                li
+                  label(for='surname') Sur name
+                li
+                  input#surname(type='text' name='txtsurname' placeholder='Enter Surname')
+                small#surnameErr
+                li
+                  label(for='givenName') Given name
+                li
+                  input#given(type='text' name='txtgiven' placeholder='Enter Given name')
+                small#givenErr
+                li
+                  label(for='studentTitle') Title
+                li
+                  select#Title(name='txtTitle')
+                    option(selected='' value='Default') Please Select your Title
+                    option(value='Mr')  Mr
+                    option(value='Miss')  Miss 
+                    option(value='Dr')  Dr
+                    option(value='Mrs')  Mrs. 
+            .col-md-6
+              input#imgInp(accept='image/*' type='file' name='profilepic')
+              img#blah(src='#' alt='')
+              small#imageErr
+          .row
+            .col
+              ul
+                li
+                  label(for='gender') Gender
+                li
+                  input#male(type='radio' name='txtSex' size='25')
+                  span Male
+                  input#female(type='radio' name='txtSex' size='25')
+                  span Female
+                small#genderErr
+          .row
+            .col
+              ul
+                li
+                  label(for='DateofBith') Date of Birth
+                li
+                  input(type='date' name='txtDoB' data-date-inline-picker='true')
+            .col
+              ul
+                li
+                  label(for='country') Country
+                li
+                  select#country(name='txtCountry')
+                    option(selected='' value='Default') Please Select your EAC Country
+                    option(value='Uganda')  Uganda
+                    option(value='Kenya')  Kenya 
+                    option(value='Tanzania')  Tanzania
+                    option(value='Rwanda')  Rwanda 
+                    option(value='Burundi')  Burundi 
+                    option(value='South Sudan')  South Sudan 
+                  small#countryErr
+          .row
+            .col
+              ul
+                li
+                  label(for='residence') Place of Residence
+                li
+                  input#residence(type='text' name='txtresidence' placeholder='Enter Place of Residence')
+                small#residenceErr
+                li
+                  label(for='nationality') Nationality
+                li
+                  input#nationality(type='text' name='txtnationality' placeholder='Enter Your Nationality')
+                small#nationalityErr
+            .bottoms
+              input(type='submit' value='Register')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous')
+    script.
+      imgInp.onchange = evt => {
+      const [file] = imgInp.files
+      if (file) {
+      blah.src = URL.createObjectURL(file)
+      }
+      }
