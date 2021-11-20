@@ -3,11 +3,12 @@
     <v-row no-gutter>
       <v-col class="mt-0 mx-auto" cols="12" xs="12" sm="12" md="8">
         <v-card class="pa-5">
-          <v-card-title class="secondary white--text"
-            >Student Registration Form</v-card-title
-          >
-          <v-divider></v-divider>
+          <v-card-title class="secondary rounded white--text"
+            >Student Registration Form
+          </v-card-title>
 
+          <v-divider></v-divider>
+              
           <v-form
             ref="form"
             @submit.prevent="submitForm"
@@ -20,13 +21,13 @@
                   label="Surname"
                   v-model="student.surname"
                   prepend-icon="mdi-account-circle-outline"
-                  :rules="rules"
+                  :rules="nameRules"
                 ></v-text-field>
                 <v-text-field
                   label="Given Name"
                   v-model="student.givenName"
                   prepend-icon="mdi-account-circle-outline "
-                  :rules="rules"
+                  :rules="nameRules"
                 ></v-text-field>
                 <v-select
                   label="Title"
@@ -50,25 +51,28 @@
                 <div v-if="student.studentImage">
                   <v-img
                     v-model="student.studentImage"
-                    :src="`${student.studentImage}`"
+                    :src="`/${student.studentImage}`"
                   ></v-img>
+                </div>
+                <div v-else>
+                  <v-img :src="`/student.png`"></v-img>
                 </div>
               </v-col>
             </v-row>
             <v-row>
-              <v-col class="mt-0 mx-auto" cols="12" xs="12" sm="12" md="12">
-                <v-radio-group
-                  v-model="student.gender"
-                  prepend-icon="mdi-gender-male-female"
-                  :rules="rules"
-                  row
-                  >
-                    <v-radio label="Male" value="Male"></v-radio>
-                  <v-col class="mt-0 mx-auto" cols="12" xs="12" sm="12" md="6">
-                    <v-radio label="Female" value="Female"></v-radio>
-                  </v-col>
-                </v-radio-group>
-              </v-col>
+              <v-radio-group
+                v-model="student.gender"
+                prepend-icon="mdi-gender-male-female"
+                :rules="gendeRules"
+                row
+              >
+                <v-col class="mx-auto" cols="12" xs="12" sm="12" md="6">
+                  <v-radio label="Male" value="Male"></v-radio>
+                </v-col>
+                <v-col class="mx-auto" cols="12" xs="12" sm="12" md="6">
+                  <v-radio label="Female" value="Female"></v-radio>
+                </v-col>
+              </v-radio-group>
             </v-row>
 
             <v-row>
@@ -77,7 +81,7 @@
                   label="Date of Birth"
                   v-model="student.dateOfBirth"
                   prepend-icon="mdi-calendar-range "
-                  :rules="rules"
+                  :rules="dateRules"
                   type="date"
                 ></v-text-field>
               </v-col>
@@ -85,9 +89,9 @@
                 <v-select
                   :items="countries"
                   prepend-icon="mdi-earth"
-                  label="Country"
+                  label="Select country"
                   v-model="student.country"
-                  :rules="rules"
+                  :rules="countryRules"
                   filled
                 ></v-select>
               </v-col>
@@ -97,7 +101,7 @@
                 label="Place of Residence"
                 v-model="student.residence"
                 prepend-icon="mdi-map-marker-circle"
-                :rules="rules"
+                :rules="residenceRules"
               ></v-text-field>
             </v-row>
             <v-row>
@@ -105,7 +109,7 @@
                 label="Nationality"
                 v-model="student.nationality"
                 prepend-icon="mdi-flag-variant"
-                :rules="rules"
+                :rules="residenceRules"
               ></v-text-field>
             </v-row>
 
@@ -127,7 +131,24 @@ import API from '../api';
 export default {
   data() {
     return {
-      rules: [(value) => !!value || 'This field is required'],
+      rules: [(value) => !!value || 'Invalid field'],
+      nameRules: [
+        (value) => !!value || 'Invalid field',
+        (value) =>
+          (value && value.length <= 16) ||
+          'Names should be between 1 to 16 alpha-bet characters',
+      ],
+      gendeRules: [(value) => !!value || 'Gender must be specified'],
+      dateRules: [(value) => !!value || 'Select date of birth'],
+      residenceRules: [
+        (value) => !!value || 'Invalid field',
+        (value) =>
+          (value && value.length <= 20) ||
+          'Should be between 1 to 20 alpha-bet characters',
+      ],
+      countryRules: [
+        (value) => !!value || 'You must select your country of residence',
+      ],
       countries: ['Uganda', 'Kenya', 'Tanzania', 'Rwanda', 'Burundi'],
       titles: ['Mr', 'Mrs', 'Miss', 'Dr', 'Prof', 'Eng'],
       student: {
@@ -164,8 +185,8 @@ export default {
       if (this.$refs.form.validate()) {
         const response = await API.addStudent(formData);
         this.$router.push({
-          name: 'Home',
-          params: { message: response.message },
+          name: 'students',
+          params: {surname: `${this.student.surname}`, givname:`${this.student.givenName}`, message: ' has been registered successfully!' },
         });
       }
     },

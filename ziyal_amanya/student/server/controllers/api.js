@@ -1,8 +1,5 @@
 const Student = require('../models/student');
-
 const fs = require('fs');
-//const routes = require('../routes/routes');
-
 module.exports = class API {
   //api root
   static async apiHome(req, res) {

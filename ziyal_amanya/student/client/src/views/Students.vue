@@ -1,8 +1,17 @@
 <template v-for="student in students" :key="student._id" :items="students">
   <v-container>
+    <v-alert
+      dense
+      text
+      dismissible
+      type="success"
+      v-if="this.$route.params.message"
+    >
+       <strong>{{this.$route.params.surname}} {{this.$route.params.givname}}</strong>{{this.$route.params.message}}
+    </v-alert>
     <v-card>
       <v-card-title class="font-weight-bold secondary--text">
-        We have {{ students.length }} students
+        We now have {{ students.length }} students registered.
         <v-spacer></v-spacer>
         <v-text-field
           v-model="search"
@@ -28,7 +37,7 @@
 
             <template>
               <v-btn
-                :to="{ name: 'AddStudent' }"
+                :to="{ name: 'home' }"
                 color="primary"
                 dark
                 class="mb-2"
@@ -40,8 +49,7 @@
         </template>
         <template #item._id="{ item }">
           <v-btn
-            :to="`student/${item._id}`"
-            flat
+            :to="`/student/${item._id}`"
             outlined
             class="ml-4"
             small
@@ -61,6 +69,7 @@ export default {
     return {
       search: '',
             headers: [
+               { text: 'Title', value: 'title' },
         {
           text: 'Surname',
           align: 'start',
@@ -68,12 +77,13 @@ export default {
           value: 'surname',
         },
         { text: 'Given Name', value: 'givenName' },
+        { text: 'Gender', value: 'gender' },
         { text: 'Date of Birth', value: 'dateOfBirth' },
         { text: 'Residence', value: 'residence' },
         { text: 'Country', value: 'country' },
-        { text: 'Title', value: 'title' },
+       
         { text: 'Nationality', value: 'nationality' },
-        { text: 'Gender', value: 'gender' },
+        
         { text: 'Details', value: '_id' },
       ],
       students: [],

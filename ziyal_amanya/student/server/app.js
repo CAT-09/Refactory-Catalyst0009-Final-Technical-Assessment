@@ -11,7 +11,7 @@ const port = process.env.PORT // 1992;
 app.use(cors()); //
 app.use(express.json()); // because the backend is a restful api
 app.use(express.urlencoded({ extended: true })); //
-app.use(express.static('uploads')); // folder for holding all image uploads
+app.use(express.static('students')); // folder for holding all image uploads
 
 //Database connection
 mongoose.connect(process.env.DB_URI, {

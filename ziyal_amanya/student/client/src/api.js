@@ -1,5 +1,4 @@
 import axios from 'axios';
-//import students from "../../server/models/students";
 const studentsUrl = '/api/students';
 const studentUrl = '/api/student';
 
